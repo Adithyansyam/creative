@@ -3,7 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Will You Be My Valentine 💕</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,6 +24,10 @@
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             min-height: 100vh;
             position: relative;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
         }
 
         /* Animated gradient orbs */
@@ -457,18 +464,21 @@
 
         /* Confetti */
         .confetti {
-            position: absolute;
+            position: fixed;
             width: 12px;
             height: 12px;
             background: #f0f;
-            animation: confetti-fall 3s linear infinite;
+            animation: confetti-fall 3s linear forwards;
             border-radius: 2px;
+            pointer-events: none;
+            z-index: 3002;
         }
 
         @keyframes confetti-fall {
             0% {
                 top: -10%;
                 opacity: 1;
+                transform: rotate(0deg);
             }
 
             100% {
@@ -701,46 +711,121 @@
         /* Responsive */
         @media (max-width: 768px) {
             .card {
-                padding: 60px 40px;
+                padding: 50px 30px;
+                border-radius: 30px;
             }
 
             h1 {
-                font-size: 36px;
+                font-size: 32px;
+                margin-bottom: 40px;
             }
 
             .heart-icon {
-                font-size: 90px;
+                font-size: 80px;
+                margin-bottom: 20px;
             }
 
             button {
-                padding: 16px 40px;
+                padding: 18px 45px;
+                font-size: 22px;
+                min-width: 140px;
+            }
+
+            .buttons {
+                gap: 20px;
+                margin-top: 40px;
+            }
+
+            .modal-content {
+                padding: 50px 35px;
+                border-radius: 30px;
+            }
+
+            .modal-content h2 {
+                font-size: 28px;
+                margin-bottom: 35px;
+            }
+
+            .modal-btn {
+                padding: 16px 45px;
                 font-size: 20px;
             }
 
             .success-content h1 {
-                font-size: 60px;
+                font-size: 56px;
             }
 
             .success-content p {
-                font-size: 28px;
+                font-size: 26px;
+                padding: 0 20px;
             }
 
             .future-content h1 {
-                font-size: 40px;
+                font-size: 36px;
+                margin-bottom: 50px;
+                padding: 0 20px;
             }
 
             .future-yes-btn,
             .future-double-yes-btn {
-                padding: 18px 45px;
+                padding: 20px 50px;
+                font-size: 24px;
+                min-width: 160px;
+            }
+
+            .future-buttons {
+                gap: 20px;
+            }
+
+            .love-text {
+                font-size: 36px;
+            }
+
+            .image-container {
+                max-width: 95%;
+                border-radius: 30px;
+            }
+
+            .image-container img {
+                border-radius: 30px;
+            }
+
+            .image-overlay {
+                padding: 40px 25px 25px;
+                border-radius: 0 0 30px 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 40px 25px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .heart-icon {
+                font-size: 70px;
+            }
+
+            button {
+                padding: 16px 35px;
+                font-size: 20px;
+            }
+
+            .future-content h1 {
+                font-size: 30px;
+            }
+
+            .future-yes-btn,
+            .future-double-yes-btn {
+                padding: 18px 40px;
                 font-size: 22px;
             }
 
             .love-text {
-                font-size: 48px;
-            }
-
-            .image-container {
-                max-width: 90%;
+                font-size: 28px;
             }
         }
     </style>
@@ -787,7 +872,7 @@
             <div class="image-container">
                 <img src="image.jpeg" alt="Our Future" id="coupleImage">
                 <div class="image-overlay">
-                    <h1 class="love-text">I Love you nithuuuu ponnaeee ❤️</h1>
+                    <h1 class="love-text">I ❤️ U</h1>
                 </div>
             </div>
         </div>
